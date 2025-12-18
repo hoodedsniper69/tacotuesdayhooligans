@@ -1,129 +1,177 @@
-<!doctype html>
+<!-- Taco Tuesday Hooligans Website (Unified Background) -->
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Taco Tuesday Hooligans</title>
-  <meta name="description" content="Taco Tuesday Hooligans — rides, merch, meetups, and community." />
-  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Luckiest+Guy&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Luckiest Guy', cursive;
+      background: radial-gradient(60% 60% at 50% 40%, rgba(55,227,111,.18), transparent 60%),
+                  radial-gradient(40% 80% at 70% 70%, rgba(255,77,77,.15), transparent 60%),
+                  #0b0b0b;
+      color: #eaeaea;
+      background-attachment: fixed;
+      background-size: cover;
+      min-height: 100vh;
+    }
+
+    a {color: #37e36f; text-decoration: none;}
+    a:hover {text-decoration: underline;}
+
+    header {
+      text-align: center;
+      padding: 70px 20px;
+    }
+
+    .taco-title {
+      font-family: 'Pacifico', cursive;
+      font-size: clamp(3rem, 7vw, 5rem);
+      color: #37e36f;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+      margin: 0;
+    }
+
+    .hooligans-sub {
+      font-family: 'Luckiest Guy', cursive;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: #37e36f;
+      margin-top: 5px;
+      letter-spacing: 1px;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+    }
+
+    .fb-follow {display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 20px;}
+    .fb-follow img {width: 45px; height: 45px; transition: transform .2s;}
+    .fb-follow img:hover {transform: scale(1.1);}
+
+    h2 {font-family: 'Luckiest Guy', cursive; letter-spacing: 1px; color: #37e36f;}
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      padding: 12px;
+      border-bottom: 1px solid #222;
+      background: rgba(12, 12, 12, 0.8);
+    }
+
+    nav a {
+      color: #ddd;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-family: 'Luckiest Guy', cursive;
+    }
+
+    nav a:hover {background: #141414; color: #fff;}
+
+    .section {max-width: 1200px; margin: 40px auto; padding: 0 20px; font-family: Inter, Arial, sans-serif;}
+
+    .gallery {display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));}
+    .gallery img {width: 100%; border-radius: 10px; object-fit: cover; box-shadow: 0 4px 12px rgba(0,0,0,.3);}
+
+    form {display: flex; flex-direction: column; gap: 12px; max-width: 500px; margin: 0 auto; text-align: left;}
+    input, textarea {padding: 10px; border-radius: 8px; border: none; background: #1a1a1a; color: #fff;}
+    textarea {min-height: 100px; resize: vertical;}
+    button {padding: 10px 18px; background: #37e36f; border: none; border-radius: 8px; color: #000; font-weight: bold; cursor: pointer; align-self: flex-start;}
+    button:hover {background: #2fc95f;}
+
+    footer {text-align: center; padding: 40px 20px; color: #999; border-top: 1px solid #222; font-family: Inter, Arial, sans-serif;}
+  </style>
 </head>
 <body>
-  <header class="top">
-    <div class="wrap top__inner">
-      <a class="brand" href="#home" aria-label="Taco Tuesday Hooligans">
-        <span class="brand__mark" aria-hidden="true">🌮</span>
-        <span class="brand__text">
-          <span class="brand__name">Taco Tuesday Hooligans</span>
-          <span class="brand__tag">Rides • Merch • Community</span>
-        </span>
-      </a>
+  <nav>
+    <a href="#home">Main</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#calendar">Calendar</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-      <nav class="nav" aria-label="Primary">
-        <a href="#events">Events</a>
-        <a href="#merch">Merch</a>
-        <a href="#about">About</a>
-        <a class="btn btn--ghost" href="#contact">Contact</a>
-      </nav>
+  <header id="home">
+    <h1 class="taco-title">Taco Tuesday</h1>
+    <h1 class="hooligans-sub">Hooligans</h1>
+    <p style="font-family:Inter,Arial,sans-serif;">Northern Michigan riders • Weekly meet‑ups • Charity rides • Good vibes</p>
+    <div class="fb-follow">
+      <a href="https://www.facebook.com/groups/1442017846808235" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Logo"/>
+      </a>
+      <a href="https://www.facebook.com/groups/1442017846808235" target="_blank" style="font-size:1.2rem;color:#37e36f;font-weight:bold">Follow us here!</a>
     </div>
   </header>
 
-  <main id="home">
-    <section class="hero">
-      <div class="wrap hero__grid">
-        <div class="card hero__main">
-          <div class="pill"><span class="dot" aria-hidden="true"></span> Traverse City vibes — built for riders</div>
-          <h1>Ride. Laugh. Eat tacos.<br />Repeat every Tuesday.</h1>
-          <p class="lead">
-            Taco Tuesday Hooligans is a local motorcycle community built around good people, good rides,
-            and even better tacos. Follow along for meetups, merch drops, and chaos (the fun kind).
-          </p>
+  <section class="section" id="about">
+    <h2>What We’re About</h2>
+    <p>We’re a laid‑back Northern Michigan moto crew hosting open Tuesday meet‑ups and scenic rides. Our focus is bringing all bikers together — no matter what they ride — to break down barriers and build community. We meet at <strong>Classic Motorsports of TC</strong> at <strong>6:00 PM</strong>, kickstands up at <strong>6:30 PM</strong>, and ride to a local Northern Michigan diner to support local businesses. Along the way, we give back through charity runs and merch sales that help local causes.</p>
+    <p>Affiliations & friends: 
+      <a href="https://abateofmichigan.org/" target="_blank">ABATE of Michigan (Region 22)</a>,
+      <a href="https://www.classictc.com/" target="_blank">Classic Motorsports – Traverse City</a>,
+      and Ride With Purpose.
+    </p>
+  </section>
 
-          <div class="cta">
-            <a class="btn btn--primary" href="#contact">Join the Crew →</a>
-            <a class="btn" href="#events">See Upcoming Events</a>
-          </div>
+  <section class="section" id="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <img src="img/sunset-lineup-01.jpg" alt="Sunset lineup"/>
+      <img src="img/downtown-row-01.jpg" alt="Downtown bikes"/>
+      <img src="img/group-rolling-01.jpg" alt="Group ride"/>
+      <img src="img/beach-meet-01.jpg" alt="Beach meetup"/>
+    </div>
+  </section>
 
-          <ul class="checks" role="list">
-            <li>Beginner‑friendly rides</li>
-            <li>Meetups & photo stops</li>
-            <li>Merch drops (limited runs)</li>
-          </ul>
-        </div>
-
-        <aside class="card hero__side" id="about">
-          <h2>What we’re about</h2>
-          <p>
-            A chill crew with a simple mission: build community, do local rides, and keep it fun.
-            No ego. No drama. Just good times.
-          </p>
-
-          <div class="feature">
-            <div class="feature__icon" aria-hidden="true">🏍️</div>
-            <div class="feature__body">
-              <h3>Rides</h3>
-              <p>Casual group rides with safe pacing.</p>
-            </div>
-          </div>
-
-          <div class="feature">
-            <div class="feature__icon" aria-hidden="true">🌮</div>
-            <div class="feature__body">
-              <h3>Taco Stops</h3>
-              <p>Because it’s not a ride without tacos.</p>
-            </div>
-          </div>
-
-          <div class="feature">
-            <div class="feature__icon" aria-hidden="true">👕</div>
-            <div class="feature__body">
-              <h3>Merch</h3>
-              <p>Drops, limited runs, and club‑style gear.</p>
-            </div>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section class="wrap grid">
-      <div class="card tile" id="events">
-        <h2>📍 Events</h2>
-        <p>Weekly Taco Tuesday meetups + occasional weekend rides.</p>
-        <div class="note">
-          <strong>Tip:</strong> Replace this block with your next meetup date, time, and location.
-        </div>
+  <section class="section" id="calendar">
+    <h2>Calendar</h2>
+    <div class="cal-list" style="display:grid;gap:12px">
+      <div class="event" style="background:#141414;border:1px solid #242424;border-radius:12px;padding:14px">
+        <h3 style="margin:0 0 6px">Taco Tuesday Opener</h3>
+        <div style="color:#bdbdbd">Tuesday, May 12, 2026 • 6:00 PM</div>
+        <div style="color:#bdbdbd">Meetup: Classic Motor Sports, Grawn MI</div>
+        <div style="color:#bdbdbd">Event Link: <a href="https://www.facebook.com/events/" target="_blank">Facebook Event</a></div>
       </div>
 
-      <div class="card tile" id="merch">
-        <h2>🧢 Merch</h2>
-        <p>Shirts, hoodies, and stickers. Limited runs.</p>
-        <div class="note">
-          Add your shop link when you’re ready (Printify/Etsy/Shopify).
-        </div>
+      <div class="event" style="background:#141414;border:1px solid #242424;border-radius:12px;padding:14px">
+        <h3 style="margin:0 0 6px">First Midnight Ride</h3>
+        <div style="color:#bdbdbd">Saturday, May 30, 2026 • 12:00 AM</div>
+        <div style="color:#bdbdbd">Meetup: Shell Station, Chums Corners MI</div>
+        <div style="color:#bdbdbd">Route: TBD</div>
+        <div style="color:#bdbdbd">Event Link: <a href="https://www.facebook.com/events/" target="_blank">Facebook Event</a></div>
       </div>
 
-      <div class="card tile" id="contact">
-        <h2>📲 Contact</h2>
-        <p class="muted">Drop your real links in <code>script.js</code> (or tell me and I’ll update them).</p>
-
-        <div class="buttons">
-          <a class="btn" id="btnInstagram" href="#" target="_blank" rel="noopener">Instagram</a>
-          <a class="btn" id="btnFacebook" href="#" target="_blank" rel="noopener">Facebook</a>
-          <a class="btn btn--ghost" id="btnEmail" href="#">Email</a>
-        </div>
+      <div class="event" style="background:#141414;border:1px solid #242424;border-radius:12px;padding:14px">
+        <h3 style="margin:0 0 6px">Sundown to Sun Up</h3>
+        <div style="color:#bdbdbd">Saturday, July 11, 2026 • 12:00 AM</div>
+        <div style="color:#bdbdbd">Route: TBD</div>
+        <div style="color:#bdbdbd">Event Link: <a href="https://www.facebook.com/events/" target="_blank">Facebook Event</a></div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="wrap footer">
-      <div>© <span id="year"></span> Taco Tuesday Hooligans</div>
-      <div class="footer__links">
-        <a href="#about">About</a>
-        <a href="#events">Events</a>
-        <a href="#merch">Merch</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </section>
-  </main>
+  <section class="section" id="contact">
+    <h2>Contact Us</h2>
+    <p>For inquiries, charity ride coordination, or merch information, reach out below. We’d love to connect!</p>
+    <form id="contact-form">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Your name" required>
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Your email" required>
+      <label for="message">Message</label>
+      <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+      <button type="submit">Send Message</button>
+      <div id="form-status" style="margin-top:10px;font-family:Inter,Arial,sans-serif;"></div>
+    </form>
+    <p style="margin-top:20px;text-align:center;">Or email us directly at <a href="mailto:tocatuesdayhooligans@gmail.com">tocatuesdayhooligans@gmail.com</a></p>
+  </section>
 
-  <script src="script.js"></script>
+  <footer>
+    <p>© 2025 Taco Tuesday Hooligans • Traverse City, MI</p>
+    <p>
+      <a href="https://abateofmichigan.org/" target="_blank">ABATE of Michigan</a> •
+      <a href="https://www.classictc.com/" target="_blank">Classic Motorsports – TC</a> •
+      <a href="https://www.facebook.com/groups/1442017846808235" target="_blank">Facebook</a>
+    </p>
+  </footer>
 </body>
 </html>

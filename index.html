@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Taco Tuesday Hooligans</title>
+  <meta name="description" content="Taco Tuesday Hooligans — rides, merch, meetups, and community." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="wrap top__inner">
+      <a class="brand" href="#home" aria-label="Taco Tuesday Hooligans">
+        <span class="brand__mark" aria-hidden="true">🌮</span>
+        <span class="brand__text">
+          <span class="brand__name">Taco Tuesday Hooligans</span>
+          <span class="brand__tag">Rides • Merch • Community</span>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="#events">Events</a>
+        <a href="#merch">Merch</a>
+        <a href="#about">About</a>
+        <a class="btn btn--ghost" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="wrap hero__grid">
+        <div class="card hero__main">
+          <div class="pill"><span class="dot" aria-hidden="true"></span> Traverse City vibes — built for riders</div>
+          <h1>Ride. Laugh. Eat tacos.<br />Repeat every Tuesday.</h1>
+          <p class="lead">
+            Taco Tuesday Hooligans is a local motorcycle community built around good people, good rides,
+            and even better tacos. Follow along for meetups, merch drops, and chaos (the fun kind).
+          </p>
+
+          <div class="cta">
+            <a class="btn btn--primary" href="#contact">Join the Crew →</a>
+            <a class="btn" href="#events">See Upcoming Events</a>
+          </div>
+
+          <ul class="checks" role="list">
+            <li>Beginner‑friendly rides</li>
+            <li>Meetups & photo stops</li>
+            <li>Merch drops (limited runs)</li>
+          </ul>
+        </div>
+
+        <aside class="card hero__side" id="about">
+          <h2>What we’re about</h2>
+          <p>
+            A chill crew with a simple mission: build community, do local rides, and keep it fun.
+            No ego. No drama. Just good times.
+          </p>
+
+          <div class="feature">
+            <div class="feature__icon" aria-hidden="true">🏍️</div>
+            <div class="feature__body">
+              <h3>Rides</h3>
+              <p>Casual group rides with safe pacing.</p>
+            </div>
+          </div>
+
+          <div class="feature">
+            <div class="feature__icon" aria-hidden="true">🌮</div>
+            <div class="feature__body">
+              <h3>Taco Stops</h3>
+              <p>Because it’s not a ride without tacos.</p>
+            </div>
+          </div>
+
+          <div class="feature">
+            <div class="feature__icon" aria-hidden="true">👕</div>
+            <div class="feature__body">
+              <h3>Merch</h3>
+              <p>Drops, limited runs, and club‑style gear.</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="wrap grid">
+      <div class="card tile" id="events">
+        <h2>📍 Events</h2>
+        <p>Weekly Taco Tuesday meetups + occasional weekend rides.</p>
+        <div class="note">
+          <strong>Tip:</strong> Replace this block with your next meetup date, time, and location.
+        </div>
+      </div>
+
+      <div class="card tile" id="merch">
+        <h2>🧢 Merch</h2>
+        <p>Shirts, hoodies, and stickers. Limited runs.</p>
+        <div class="note">
+          Add your shop link when you’re ready (Printify/Etsy/Shopify).
+        </div>
+      </div>
+
+      <div class="card tile" id="contact">
+        <h2>📲 Contact</h2>
+        <p class="muted">Drop your real links in <code>script.js</code> (or tell me and I’ll update them).</p>
+
+        <div class="buttons">
+          <a class="btn" id="btnInstagram" href="#" target="_blank" rel="noopener">Instagram</a>
+          <a class="btn" id="btnFacebook" href="#" target="_blank" rel="noopener">Facebook</a>
+          <a class="btn btn--ghost" id="btnEmail" href="#">Email</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap footer">
+      <div>© <span id="year"></span> Taco Tuesday Hooligans</div>
+      <div class="footer__links">
+        <a href="#about">About</a>
+        <a href="#events">Events</a>
+        <a href="#merch">Merch</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

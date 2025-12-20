@@ -93,7 +93,7 @@
   <header id="home">
     <h1 class="taco-title">Taco Tuesday</h1>
     <h1 class="hooligans-sub">Hooligans</h1>
-    <p style="font-family:Inter,Arial,sans-serif;">Northern Michigan riders • Weekly meet‑ups • Charity rides • Good vibes</p>
+    <p style="font-family:Inter,Arial,sans-serif;">Northern Michigan riders • Weekly meet-ups • Charity rides • Good vibes</p>
     <div class="fb-follow">
       <a href="https://www.facebook.com/groups/1442017846808235" target="_blank">
         <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Logo"/>
@@ -104,8 +104,8 @@
 
   <section class="section" id="about">
     <h2>What We’re About</h2>
-    <p>We’re a laid‑back Northern Michigan moto crew hosting open Tuesday meet‑ups and scenic rides. Our focus is bringing all bikers together — no matter what they ride — to break down barriers and build community. We meet at <strong>Classic Motorsports of TC</strong> at <strong>6:00 PM</strong>, kickstands up at <strong>6:30 PM</strong>, and ride to a local Northern Michigan diner to support local businesses. Along the way, we give back through charity runs and merch sales that help local causes.</p>
-    <p>Affiliations & friends: 
+    <p>We’re a laid-back Northern Michigan moto crew hosting open Tuesday meet-ups and scenic rides. Our focus is bringing all bikers together — no matter what they ride — to break down barriers and build community. We meet at <strong>Classic Motorsports of TC</strong> at <strong>6:00 PM</strong>, kickstands up at <strong>6:30 PM</strong>, and ride to a local Northern Michigan diner to support local businesses. Along the way, we give back through charity runs and merch sales that help local causes.</p>
+    <p>Affiliations & friends:
       <a href="https://abateofmichigan.org/" target="_blank">ABATE of Michigan (Region 22)</a>,
       <a href="https://www.classictc.com/" target="_blank">Classic Motorsports – Traverse City</a>,
       and Ride With Purpose.
@@ -152,17 +152,33 @@
   <section class="section" id="contact">
     <h2>Contact Us</h2>
     <p>For inquiries, charity ride coordination, or merch information, reach out below. We’d love to connect!</p>
-    <form id="contact-form">
+
+    <form id="contact-form" action="https://formsubmit.co/tocatuesdayhooligans@gmail.com" method="POST">
+      <!-- FormSubmit settings -->
+      <input type="hidden" name="_subject" value="New message from Taco Tuesday Hooligans website">
+      <input type="hidden" name="_captcha" value="false">
+      <!-- IMPORTANT: query must be BEFORE #hash -->
+      <input type="hidden" name="_next" value="https://tacotuesdayhooligans.com/?sent=1#contact">
+      <!-- Honeypot (spam trap) -->
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
       <label for="name">Name</label>
       <input type="text" id="name" name="name" placeholder="Your name" required>
+
       <label for="email">Email</label>
       <input type="email" id="email" name="email" placeholder="Your email" required>
+
       <label for="message">Message</label>
       <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+
       <button type="submit">Send Message</button>
       <div id="form-status" style="margin-top:10px;font-family:Inter,Arial,sans-serif;"></div>
     </form>
-    <p style="margin-top:20px;text-align:center;">Or email us directly at <a href="mailto:tocatuesdayhooligans@gmail.com">tocatuesdayhooligans@gmail.com</a></p>
+
+    <p style="margin-top:20px;text-align:center;">
+      Or email us directly at
+      <a href="mailto:tocatuesdayhooligans@gmail.com">tocatuesdayhooligans@gmail.com</a>
+    </p>
   </section>
 
   <footer>
@@ -173,5 +189,25 @@
       <a href="https://www.facebook.com/groups/1442017846808235" target="_blank">Facebook</a>
     </p>
   </footer>
+
+  <script>
+    // Show a friendly success message after FormSubmit redirects back.
+    (function () {
+      const status = document.getElementById('form-status');
+      if (!status) return;
+
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('sent') === '1') {
+        status.textContent = "Thanks! Your message was sent. We’ll get back to you soon.";
+        status.style.color = "#37e36f";
+
+        // Clean URL so refresh doesn't keep showing it
+        params.delete('sent');
+        const qs = params.toString();
+        const newUrl = window.location.pathname + (qs ? ("?" + qs) : "") + window.location.hash;
+        window.history.replaceState({}, "", newUrl);
+      }
+    })();
+  </script>
 </body>
 </html>

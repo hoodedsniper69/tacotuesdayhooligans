@@ -44,7 +44,14 @@
       text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
     }
 
-    .fb-follow {display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 20px;}
+    .fb-follow {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
     .fb-follow img {width: 45px; height: 45px; transition: transform .2s;}
     .fb-follow img:hover {transform: scale(1.1);}
 
@@ -57,6 +64,10 @@
       padding: 12px;
       border-bottom: 1px solid #222;
       background: rgba(12, 12, 12, 0.8);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      flex-wrap: wrap;
     }
 
     nav a {
@@ -68,18 +79,91 @@
 
     nav a:hover {background: #141414; color: #fff;}
 
-    .section {max-width: 1200px; margin: 40px auto; padding: 0 20px; font-family: Inter, Arial, sans-serif;}
+    .section {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+      font-family: Inter, Arial, sans-serif;
+    }
 
-    .gallery {display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));}
-    .gallery img {width: 100%; border-radius: 10px; object-fit: cover; box-shadow: 0 4px 12px rgba(0,0,0,.3);}
+    .gallery {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0,0,0,.3);
+    }
 
-    form {display: flex; flex-direction: column; gap: 12px; max-width: 500px; margin: 0 auto; text-align: left;}
-    input, textarea {padding: 10px; border-radius: 8px; border: none; background: #1a1a1a; color: #fff;}
-    textarea {min-height: 100px; resize: vertical;}
-    button {padding: 10px 18px; background: #37e36f; border: none; border-radius: 8px; color: #000; font-weight: bold; cursor: pointer; align-self: flex-start;}
-    button:hover {background: #2fc95f;}
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: #999;
+      border-top: 1px solid #222;
+      font-family: Inter, Arial, sans-serif;
+    }
 
-    footer {text-align: center; padding: 40px 20px; color: #999; border-top: 1px solid #222; font-family: Inter, Arial, sans-serif;}
+    /* Contact call-to-action */
+    .contact-card{
+      max-width: 720px;
+      margin: 0 auto;
+      background: rgba(20,20,20,.75);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 16px;
+      padding: 22px 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      backdrop-filter: blur(6px);
+    }
+    .contact-lead{
+      margin: 10px 0 18px;
+      color: #d7d7d7;
+      line-height: 1.5;
+      font-size: clamp(1rem, 2.2vw, 1.12rem);
+    }
+    .email-row{
+      display:flex;
+      gap: 12px;
+      align-items:center;
+      justify-content:center;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+    .email-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding: 14px 18px;
+      border-radius: 12px;
+      background: #37e36f;
+      color: #000;
+      font-weight: 800;
+      letter-spacing: .3px;
+      text-decoration:none;
+      box-shadow: 0 10px 18px rgba(55,227,111,.18);
+      transition: transform .12s ease, filter .12s ease;
+    }
+    .email-btn:hover{
+      text-decoration:none;
+      transform: translateY(-1px);
+      filter: brightness(0.95);
+    }
+    .email-big{
+      font-size: clamp(1.05rem, 2.6vw, 1.25rem);
+      font-weight: 800;
+      color: #37e36f;
+      word-break: break-word;
+    }
+    .contact-small{
+      margin-top: 14px;
+      text-align:center;
+      color:#bdbdbd;
+      font-size: .95rem;
+      line-height: 1.5;
+    }
   </style>
 </head>
 <body>
@@ -95,19 +179,28 @@
     <h1 class="hooligans-sub">Hooligans</h1>
     <p style="font-family:Inter,Arial,sans-serif;">Northern Michigan riders • Weekly meet-ups • Charity rides • Good vibes</p>
     <div class="fb-follow">
-      <a href="https://www.facebook.com/groups/1442017846808235" target="_blank">
+      <a href="https://www.facebook.com/groups/1442017846808235" target="_blank" rel="noopener">
         <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Logo"/>
       </a>
-      <a href="https://www.facebook.com/groups/1442017846808235" target="_blank" style="font-size:1.2rem;color:#37e36f;font-weight:bold">Follow us here!</a>
+      <a href="https://www.facebook.com/groups/1442017846808235" target="_blank" rel="noopener" style="font-size:1.2rem;color:#37e36f;font-weight:bold">
+        Follow us here!
+      </a>
     </div>
   </header>
 
   <section class="section" id="about">
     <h2>What We’re About</h2>
-    <p>We’re a laid-back Northern Michigan moto crew hosting open Tuesday meet-ups and scenic rides. Our focus is bringing all bikers together — no matter what they ride — to break down barriers and build community. We meet at <strong>Classic Motorsports of TC</strong> at <strong>6:00 PM</strong>, kickstands up at <strong>6:30 PM</strong>, and ride to a local Northern Michigan diner to support local businesses. Along the way, we give back through charity runs and merch sales that help local causes.</p>
-    <p>Affiliations & friends:
-      <a href="https://abateofmichigan.org/" target="_blank">ABATE of Michigan (Region 22)</a>,
-      <a href="https://www.classictc.com/" target="_blank">Classic Motorsports – Traverse City</a>,
+    <p>
+      We’re a laid-back Northern Michigan moto crew hosting open Tuesday meet-ups and scenic rides.
+      Our focus is bringing all bikers together — no matter what they ride — to break down barriers and build community.
+      We meet at <strong>Classic Motorsports of TC</strong> at <strong>6:00 PM</strong>, kickstands up at <strong>6:30 PM</strong>,
+      and ride to a local Northern Michigan diner to support local businesses.
+      Along the way, we give back through charity runs and merch sales that help local causes.
+    </p>
+    <p>
+      Affiliations & friends:
+      <a href="https://abateofmichigan.org/" target="_blank" rel="noopener">ABATE of Michigan (Region 22)</a>,
+      <a href="https://www.classictc.com/" target="_blank" rel="noopener">Classic Motorsports – Traverse City</a>,
       and Ride With Purpose.
     </p>
   </section>
@@ -129,7 +222,7 @@
         <h3 style="margin:0 0 6px">Taco Tuesday Opener</h3>
         <div style="color:#bdbdbd">Tuesday, May 12, 2026 • 6:00 PM</div>
         <div style="color:#bdbdbd">Meetup: Classic Motor Sports, Grawn MI</div>
-        <div style="color:#bdbdbd">Event Link: <a href="https://www.facebook.com/events/" target="_blank">Facebook Event</a></div>
+        <div style="color:#bdbdbd">Event Link: <a href="https://www.facebook.com/events/" target="_blank" rel="noopener">Facebook Event</a></div>
       </div>
 
       <div class="event" style="background:#141414;border:1px solid #242424;border-radius:12px;padding:14px">
@@ -137,77 +230,50 @@
         <div style="color:#bdbdbd">Saturday, May 30, 2026 • 12:00 AM</div>
         <div style="color:#bdbdbd">Meetup: Shell Station, Chums Corners MI</div>
         <div style="color:#bdbdbd">Route: TBD</div>
-        <div style="color:#bdbdbd">Event Link: <a href="https://www.facebook.com/events/" target="_blank">Facebook Event</a></div>
+        <div style="color:#bdbdbd">Event Link: <a href="https://www.facebook.com/events/" target="_blank" rel="noopener">Facebook Event</a></div>
       </div>
 
       <div class="event" style="background:#141414;border:1px solid #242424;border-radius:12px;padding:14px">
         <h3 style="margin:0 0 6px">Sundown to Sun Up</h3>
         <div style="color:#bdbdbd">Saturday, July 11, 2026 • 12:00 AM</div>
         <div style="color:#bdbdbd">Route: TBD</div>
-        <div style="color:#bdbdbd">Event Link: <a href="https://www.facebook.com/events/" target="_blank">Facebook Event</a></div>
+        <div style="color:#bdbdbd">Event Link: <a href="https://www.facebook.com/events/" target="_blank" rel="noopener">Facebook Event</a></div>
       </div>
     </div>
   </section>
 
   <section class="section" id="contact">
     <h2>Contact Us</h2>
-    <p>For inquiries, charity ride coordination, or merch information, reach out below. We’d love to connect!</p>
 
-    <form id="contact-form" action="https://formsubmit.co/tocatuesdayhooligans@gmail.com" method="POST">
-      <!-- FormSubmit settings -->
-      <input type="hidden" name="_subject" value="New message from Taco Tuesday Hooligans website">
-      <input type="hidden" name="_captcha" value="false">
-      <!-- IMPORTANT: query must be BEFORE #hash -->
-      <input type="hidden" name="_next" value="https://tacotuesdayhooligans.com/?sent=1#contact">
-      <!-- Honeypot (spam trap) -->
-      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+    <div class="contact-card">
+      <p class="contact-lead">
+        For inquiries, charity ride coordination, donations, sponsorships, or merch information —
+        reach out anytime. We’ll get back to you as soon as we can.
+      </p>
 
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" placeholder="Your name" required>
+      <div class="email-row">
+        <a class="email-btn" href="mailto:tocatuesdayhooligans@gmail.com?subject=Taco%20Tuesday%20Hooligans%20Inquiry">
+          ✉️ Email Us
+        </a>
 
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" placeholder="Your email" required>
+        <a class="email-big" href="mailto:tocatuesdayhooligans@gmail.com?subject=Taco%20Tuesday%20Hooligans%20Inquiry">
+          tocatuesdayhooligans@gmail.com
+        </a>
+      </div>
 
-      <label for="message">Message</label>
-      <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
-
-      <button type="submit">Send Message</button>
-      <div id="form-status" style="margin-top:10px;font-family:Inter,Arial,sans-serif;"></div>
-    </form>
-
-    <p style="margin-top:20px;text-align:center;">
-      Or email us directly at
-      <a href="mailto:tocatuesdayhooligans@gmail.com">tocatuesdayhooligans@gmail.com</a>
-    </p>
+      <div class="contact-small">
+        Tip: if you’re on a phone, tapping “Email Us” opens your mail app automatically.
+      </div>
+    </div>
   </section>
 
   <footer>
     <p>© 2025 Taco Tuesday Hooligans • Traverse City, MI</p>
     <p>
-      <a href="https://abateofmichigan.org/" target="_blank">ABATE of Michigan</a> •
-      <a href="https://www.classictc.com/" target="_blank">Classic Motorsports – TC</a> •
-      <a href="https://www.facebook.com/groups/1442017846808235" target="_blank">Facebook</a>
+      <a href="https://abateofmichigan.org/" target="_blank" rel="noopener">ABATE of Michigan</a> •
+      <a href="https://www.classictc.com/" target="_blank" rel="noopener">Classic Motorsports – TC</a> •
+      <a href="https://www.facebook.com/groups/1442017846808235" target="_blank" rel="noopener">Facebook</a>
     </p>
   </footer>
-
-  <script>
-    // Show a friendly success message after FormSubmit redirects back.
-    (function () {
-      const status = document.getElementById('form-status');
-      if (!status) return;
-
-      const params = new URLSearchParams(window.location.search);
-      if (params.get('sent') === '1') {
-        status.textContent = "Thanks! Your message was sent. We’ll get back to you soon.";
-        status.style.color = "#37e36f";
-
-        // Clean URL so refresh doesn't keep showing it
-        params.delete('sent');
-        const qs = params.toString();
-        const newUrl = window.location.pathname + (qs ? ("?" + qs) : "") + window.location.hash;
-        window.history.replaceState({}, "", newUrl);
-      }
-    })();
-  </script>
 </body>
 </html>

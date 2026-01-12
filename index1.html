@@ -1,0 +1,501 @@
+<!-- Taco Tuesday Hooligans Website (Unified Background + Single img folder + Updated Calendar) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Taco Tuesday Hooligans</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Luckiest+Guy&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --green:#37e36f;
+      --bg1: rgba(55,227,111,.18);
+      --bg2: rgba(255,77,77,.15);
+      --card:#141414;
+      --cardBorder:#242424;
+      --muted:#bdbdbd;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Luckiest Guy', cursive;
+      background:
+        radial-gradient(60% 60% at 50% 40%, var(--bg1), transparent 60%),
+        radial-gradient(40% 80% at 70% 70%, var(--bg2), transparent 60%),
+        #0b0b0b;
+      color: #eaeaea;
+      background-attachment: fixed;
+      background-size: cover;
+      min-height: 100vh;
+    }
+
+    a { color: var(--green); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 12px;
+      border-bottom: 1px solid #222;
+      background: rgba(12, 12, 12, 0.8);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(6px);
+    }
+
+    nav a {
+      color: #ddd;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-family: 'Luckiest Guy', cursive;
+      letter-spacing: .5px;
+    }
+
+    nav a:hover { background: #141414; color: #fff; }
+
+    header {
+      text-align: center;
+      padding: 70px 20px 40px;
+    }
+
+    .taco-title {
+      font-family: 'Pacifico', cursive;
+      font-size: clamp(3rem, 7vw, 5rem);
+      color: var(--green);
+      text-shadow: 2px 2px 6px rgba(0,0,0,.6);
+      margin: 0;
+      line-height: 1.05;
+    }
+
+    .hooligans-sub {
+      font-family: 'Luckiest Guy', cursive;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--green);
+      margin: 8px 0 0;
+      letter-spacing: 1px;
+      text-shadow: 2px 2px 6px rgba(0,0,0,.6);
+    }
+
+    .tagline{
+      font-family: Inter, Arial, sans-serif;
+      margin: 14px 0 0;
+      color:#eaeaea;
+    }
+
+    .fb-follow {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-top: 18px;
+      padding: 10px 14px;
+      border-radius: 14px;
+      background: rgba(0,0,0,.28);
+      border: 1px solid rgba(255,255,255,.08);
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+
+    .fb-follow img {
+      width: 42px;
+      height: 42px;
+      transition: transform .2s;
+    }
+
+    .fb-follow img:hover { transform: scale(1.08); }
+
+    .fb-follow a.text {
+      font-family: Inter, Arial, sans-serif;
+      font-size: 1.1rem;
+      color: var(--green);
+      font-weight: 800;
+      letter-spacing: .2px;
+      white-space: nowrap;
+    }
+
+    h2 {
+      font-family: 'Luckiest Guy', cursive;
+      letter-spacing: 1px;
+      color: var(--green);
+      margin: 0 0 12px;
+      font-size: clamp(1.6rem, 3.6vw, 2.2rem);
+    }
+
+    .section {
+      max-width: 1200px;
+      margin: 38px auto;
+      padding: 0 20px;
+      font-family: Inter, Arial, sans-serif;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--cardBorder);
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+
+    /* GALLERY */
+    .gallery {
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 12px;
+      object-fit: cover;
+      aspect-ratio: 4 / 3;
+      box-shadow: 0 6px 16px rgba(0,0,0,.35);
+      border: 1px solid rgba(255,255,255,.06);
+      background: #0f0f0f;
+    }
+
+    /* CALENDAR */
+    .cal-list { display: grid; gap: 12px; }
+    .event h3 { margin: 0 0 6px; font-family: Inter, Arial, sans-serif; font-weight: 800; }
+    .event .line { color: var(--muted); font-family: Inter, Arial, sans-serif; margin-top: 2px; }
+
+    .month-label{
+      margin: 22px 0 8px;
+      font-family: 'Luckiest Guy', cursive;
+      letter-spacing: 1px;
+      color: #eaeaea;
+      opacity: .9;
+    }
+
+    /* CONTACT (nice card) */
+    .contact-wrap{
+      display: grid;
+      gap: 14px;
+    }
+
+    .contact-card{
+      background: rgba(0,0,0,.26);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 16px 40px rgba(0,0,0,.45);
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .contact-title{
+      font-family: 'Luckiest Guy', cursive;
+      color: var(--green);
+      letter-spacing: 1px;
+      margin: 0 0 8px;
+    }
+
+    .contact-text{
+      font-family: Inter, Arial, sans-serif;
+      color: #eaeaea;
+      margin: 0 0 16px;
+      line-height: 1.45;
+      opacity: .95;
+    }
+
+    .email-row{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items:center;
+      justify-content:center;
+      margin-top: 10px;
+    }
+
+    .email-btn{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      padding: 12px 18px;
+      border-radius: 12px;
+      border: 0;
+      background: var(--green);
+      color: #000;
+      font-family: Inter, Arial, sans-serif;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 10px 24px rgba(55,227,111,.22);
+      text-decoration: none;
+    }
+    .email-btn:hover{ filter: brightness(.95); text-decoration:none; }
+
+    .email-big{
+      font-family: Inter, Arial, sans-serif;
+      font-weight: 900;
+      font-size: clamp(1.05rem, 3.8vw, 1.35rem);
+      color: var(--green);
+      word-break: break-word;
+    }
+
+    .tip{
+      font-family: Inter, Arial, sans-serif;
+      color: #bfbfbf;
+      opacity: .9;
+      margin: 12px 0 0;
+      text-align:center;
+      font-size: .95rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 36px 20px;
+      color: #999;
+      border-top: 1px solid #222;
+      font-family: Inter, Arial, sans-serif;
+      margin-top: 44px;
+    }
+
+    /* small screens */
+    @media (max-width: 520px){
+      header{ padding-top: 56px; }
+      .fb-follow{ width: fit-content; }
+      .contact-card{ padding: 18px; }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <a href="#home">Main</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#calendar">Calendar</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <header id="home">
+    <h1 class="taco-title">Taco Tuesday</h1>
+    <h1 class="hooligans-sub">Hooligans</h1>
+
+    <p class="tagline">Northern Michigan riders • Weekly meet-ups • Charity rides • Good vibes</p>
+
+    <div class="fb-follow">
+      <a href="https://www.facebook.com/groups/1442017846808235" target="_blank" rel="noopener">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Logo"/>
+      </a>
+      <a class="text" href="https://www.facebook.com/groups/1442017846808235" target="_blank" rel="noopener">Follow us here!</a>
+    </div>
+  </header>
+
+  <section class="section" id="about">
+    <h2>What We’re About</h2>
+    <p>
+      We’re a laid-back Northern Michigan moto crew hosting open Tuesday meet-ups and scenic rides.
+      Our focus is bringing all bikers together — no matter what they ride — to break down barriers and build community.
+      We meet at <strong>Classic Motorsports of TC</strong> at <strong>6:00 PM</strong>, kickstands up at <strong>6:30 PM</strong>,
+      and ride to a local Northern Michigan diner to support local businesses.
+      Along the way, we give back through charity runs and merch sales that help local causes.
+    </p>
+    <p>
+      Affiliations & friends:
+      <a href="https://abateofmichigan.org/" target="_blank" rel="noopener">ABATE of Michigan (Region 22)</a>,
+      <a href="https://www.classictc.com/" target="_blank" rel="noopener">Classic Motorsports – Traverse City</a>,
+      and Ride With Purpose.
+    </p>
+  </section>
+
+  <section class="section" id="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery" id="gallery-grid"></div>
+  </section>
+
+  <section class="section" id="calendar">
+    <h2>Calendar</h2>
+
+    <div class="cal-list">
+      <div class="month-label">FEBRUARY 2026</div>
+      <div class="event card">
+        <h3>ABATE Chili Cook Off</h3>
+        <div class="line">Feb 21, 2026</div>
+        <div class="line">Details: TBD</div>
+      </div>
+
+      <div class="month-label">MAY 2026</div>
+      <div class="event card">
+        <h3>Taco Tuesday Opener</h3>
+        <div class="line">May 12, 2026 • Meet 6:00 PM • KSU 6:30 PM</div>
+        <div class="line">Meetup: Classic Motorsports (Grawn / TC area)</div>
+        <div class="line">Event Link: <a href="https://www.facebook.com/groups/1442017846808235" target="_blank" rel="noopener">Facebook Group</a></div>
+      </div>
+
+      <div class="event card">
+        <h3>ABATE Erik’s Ride</h3>
+        <div class="line">May 16, 2026</div>
+        <div class="line">Details: TBD</div>
+      </div>
+
+      <div class="event card">
+        <h3>ABATE Greg’s Yearly Ride → Blessing of the Bikes</h3>
+        <div class="line">May 17, 2026</div>
+        <div class="line">All are welcome</div>
+      </div>
+
+      <div class="event card">
+        <h3>Taco Tuesday Meet #2</h3>
+        <div class="line">May 19, 2026 • Meet 6:00 PM • KSU 6:30 PM</div>
+        <div class="line">Meetup: Classic Motorsports</div>
+      </div>
+
+      <div class="event card">
+        <h3>A&amp;W Ride</h3>
+        <div class="line">May 23, 2026</div>
+        <div class="line">Details: TBD</div>
+      </div>
+
+      <div class="event card">
+        <h3>Taco Tuesday Meet #3</h3>
+        <div class="line">May 26, 2026</div>
+        <div class="line">Details: TBD</div>
+      </div>
+
+      <div class="event card">
+        <h3>First Midnight Ride</h3>
+        <div class="line">May 30, 2026</div>
+        <div class="line">Weather depending</div>
+      </div>
+
+      <div class="month-label">JUNE 2026</div>
+      <div class="event card">
+        <h3>Taco Tuesday Meet #4</h3>
+        <div class="line">June 2, 2026</div>
+        <div class="line">Details: TBD</div>
+      </div>
+
+      <div class="event card">
+        <h3>Bike Night (Every Wednesday)</h3>
+        <div class="line">June 3, 2026 → Aug 26, 2026</div>
+        <div class="line">Laughing Horse Saloon</div>
+      </div>
+
+      <div class="event card">
+        <h3>Ludington Brewing</h3>
+        <div class="line">June 6, 2026</div>
+        <div class="line">Details: TBD</div>
+      </div>
+
+      <div class="event card">
+        <h3>Taco Tuesday Meet #5</h3>
+        <div class="line">June 9, 2026</div>
+        <div class="line">Details: TBD</div>
+      </div>
+
+      <div class="event card">
+        <h3>Petoskey Ride</h3>
+        <div class="line">June 13, 2026</div>
+        <div class="line">Details: TBD</div>
+      </div>
+
+      <div class="event card">
+        <h3>Taco Tuesday — Every Tuesday for the Summer</h3>
+        <div class="line">Starts June 16, 2026</div>
+        <div class="line">Weekly Tuesday meetups (summer season)</div>
+      </div>
+
+      <div class="event card">
+        <h3>Fathers Day Ride</h3>
+        <div class="line">June 20, 2026</div>
+        <div class="line">Details: TBD</div>
+      </div>
+
+      <div class="month-label">JULY 2026</div>
+      <div class="event card">
+        <h3>Sun Down to Sun Up</h3>
+        <div class="line">July 11, 2026</div>
+        <div class="line">Details: TBD</div>
+      </div>
+
+      <div class="month-label">AUGUST 2026</div>
+      <div class="event card">
+        <h3>ABATE Summer Party + Coho Fest Ride</h3>
+        <div class="line">Aug 21–22, 2026</div>
+        <div class="line">Details: TBD</div>
+      </div>
+
+      <div class="event card">
+        <h3>Hawks Nest Car &amp; Bike Show</h3>
+        <div class="line">Aug 23, 2026</div>
+        <div class="line">Pre-reg required to be in show</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <h2>Contact Us</h2>
+
+    <!-- NICE CONTACT CARD (the one you liked) -->
+    <div class="contact-wrap">
+      <div class="contact-card">
+        <h3 class="contact-title">CONTACT US</h3>
+        <p class="contact-text">
+          For inquiries, charity ride coordination, donations, sponsorships, or merch information —
+          reach out anytime. We’ll get back to you as soon as we can.
+        </p>
+
+        <div class="email-row">
+          <a class="email-btn" href="mailto:tacotuesdayhooligans@gmail.com?subject=Taco%20Tuesday%20Hooligans%20Inquiry">
+            ✉️&nbsp; Email Us
+          </a>
+          <a class="email-big" href="mailto:tacotuesdayhooligans@gmail.com?subject=Taco%20Tuesday%20Hooligans%20Inquiry">
+            tacotuesdayhooligans@gmail.com
+          </a>
+        </div>
+
+        <div class="tip">
+          Tip: if you’re on a phone, tapping “Email Us” opens your mail app automatically.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Taco Tuesday Hooligans • Traverse City, MI</p>
+    <p>
+      <a href="https://abateofmichigan.org/" target="_blank" rel="noopener">ABATE of Michigan</a> •
+      <a href="https://www.classictc.com/" target="_blank" rel="noopener">Classic Motorsports – TC</a> •
+      <a href="https://www.facebook.com/groups/1442017846808235" target="_blank" rel="noopener">Facebook</a>
+    </p>
+  </footer>
+
+  <script>
+    /*
+      GALLERY SETTINGS (single folder: /img)
+      1) Rename photos: bike-001.jpg, bike-002.jpg, ...
+      2) Put them in /img
+      3) Set PHOTO_COUNT to how many you uploaded
+    */
+    const PHOTO_PREFIX = "bike-";
+    const PHOTO_EXT = "jpg";      // change to "png" if your photos are .png
+    const PHOTO_COUNT = 50;       // <-- change this number anytime
+    const PAD = 3;                // 3 = 001, 002, 003...
+
+    function padNum(n, width){
+      return String(n).padStart(width, "0");
+    }
+
+    (function buildGallery(){
+      const grid = document.getElementById("gallery-grid");
+      if(!grid) return;
+
+      for(let i=1; i<=PHOTO_COUNT; i++){
+        const num = padNum(i, PAD);
+        const src = `img/${PHOTO_PREFIX}${num}.${PHOTO_EXT}`;
+
+        const img = document.createElement("img");
+        img.src = src;
+        img.alt = `Bike photo ${num}`;
+        img.loading = "lazy";
+
+        // If a photo is missing (wrong name), it will just hide that broken image.
+        img.onerror = () => img.remove();
+
+        grid.appendChild(img);
+      }
+    })();
+  </script>
+</body>
+</html>
